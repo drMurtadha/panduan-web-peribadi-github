@@ -1,0 +1,246 @@
+---
+import { Content, getHeadings } from '../../panduan-web-peribadi-github.md';
+
+const sections = (await getHeadings()).filter((heading) => heading.depth === 2);
+const repo = 'https://github.com/drMurtadha/panduan-web-peribadi-github';
+---
+
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#153b34" />
+    <meta name="description" content="Panduan praktikal membina web peribadi akademik dengan GitHub Pages, CV, ORCID, Scopus dan GitHub Actions. Bahan webinar IPF, UTM." />
+    <link rel="canonical" href="https://drmurtadha.github.io/panduan-web-peribadi-github/" />
+    <title>Panduan Web Peribadi Akademik | IPF UTM</title>
+  </head>
+  <body>
+    <div class="reading-progress" data-progress aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#atas" aria-label="Kembali ke atas">
+        <span class="brand-seal">UTM</span>
+        <span class="brand-wordmark">Panduan web<br />peribadi akademik</span>
+      </a>
+      <nav aria-label="Navigasi utama">
+        <a href="#gambaran">Gambaran</a>
+        <a href="#panduan">Panduan</a>
+        <a class="header-repo" href={repo} target="_blank" rel="noopener noreferrer">Repositori GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="atas">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="hero-marker"><span class="marker-dot"></span> Bahan webinar IPF, UTM</div>
+          <h1 id="hero-title">Web peribadi akademik yang hidup bersama penyelidikan anda.</h1>
+          <p>Mulakan dengan CV. Tarik karya daripada ORCID dan Scopus. Biarkan GitHub Actions menyegarkan data setiap minggu.</p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#panduan">Baca panduan <span aria-hidden="true">↓</span></a>
+            <a class="quiet-action" href="https://github.com/drMurtadha/panduan-web-peribadi-github/blob/main/panduan-web-peribadi-github.md" target="_blank" rel="noopener noreferrer">Lihat fail Markdown ↗</a>
+          </div>
+          <p class="hero-byline">Assoc. Prof. Dr. Mohd Murtadha bin Mohamad<br /><span>Fakulti Komputeran · Universiti Teknologi Malaysia</span></p>
+        </div>
+        <div class="hero-diagram" role="img" aria-label="CV, ORCID dan Scopus menghasilkan data yang diterbitkan melalui GitHub Pages">
+          <div class="diagram-label">Aliran satu laman</div>
+          <div class="source source-cv"><span class="source-icon">▤</span><strong>CV</strong><small>Profil & pengalaman</small></div>
+          <div class="source source-orcid"><span class="source-icon">◎</span><strong>ORCID</strong><small>Karya awam</small></div>
+          <div class="source source-scopus"><span class="source-icon">◫</span><strong>Scopus</strong><small>Rekod penerbitan</small></div>
+          <div class="connector connector-a"></div>
+          <div class="connector connector-b"></div>
+          <div class="connector connector-c"></div>
+          <div class="hub"><span>GitHub Actions</span><small>kemas kini mingguan</small></div>
+          <div class="connector connector-d"></div>
+          <div class="destination"><span class="browser-dots"><i></i><i></i><i></i></span><span class="destination-title">Web anda</span><span class="destination-url">github.io</span></div>
+          <p class="diagram-foot">Data dipisahkan daripada paparan. Anda kemas kini sumber; laman mengikut.</p>
+        </div>
+      </section>
+
+      <section class="orientation" id="gambaran" aria-labelledby="orientation-title">
+        <div class="orientation-heading">
+          <span class="section-index">Mulakan di sini</span>
+          <h2 id="orientation-title">Daripada akaun kosong kepada profil yang boleh dikongsi.</h2>
+        </div>
+        <div class="orientation-grid">
+          <div class="orientation-item"><span>01</span><h3>Sediakan asas</h3><p>Akaun GitHub, ORCID iD, Scopus Author ID dan kunci API jika tersedia.</p></div>
+          <div class="orientation-item"><span>02</span><h3>Susun data</h3><p>Letakkan kandungan CV dalam JSON dan ambil penerbitan daripada sumber rasmi.</p></div>
+          <div class="orientation-item"><span>03</span><h3>Terbitkan</h3><p>Hidupkan GitHub Pages dan jadualkan kemas kini melalui GitHub Actions.</p></div>
+        </div>
+        <div class="note-strip"><strong>Untuk penyelidik bukan pengaturcara.</strong> Setiap langkah dalam panduan boleh diikuti dengan menyalin dan menampal, kemudian menyemak hasilnya.</div>
+      </section>
+
+      <section class="reading-area" id="panduan" aria-label="Panduan lengkap">
+        <aside class="toc" aria-label="Isi kandungan">
+          <div class="toc-inner">
+            <p class="toc-title">Isi kandungan</p>
+            <nav>
+              {sections.map((section) => <a href={`#${section.slug}`} data-toc-link>{section.text}</a>)}
+            </nav>
+            <a class="toc-top" href="#atas">Kembali ke atas ↑</a>
+          </div>
+        </aside>
+        <div class="reading-main">
+          <div class="reading-topline"><span>Dokumen lengkap</span><span>{sections.length} bahagian · Panduan langkah demi langkah</span></div>
+          <details class="mobile-toc">
+            <summary>Lihat isi kandungan <span aria-hidden="true">⌄</span></summary>
+            <nav>{sections.map((section) => <a href={`#${section.slug}`}>{section.text}</a>)}</nav>
+          </details>
+          <article class="document"><Content /></article>
+          <div class="end-panel">
+            <div><span class="end-mark">✓</span><h2>Bersedia untuk mula?</h2><p>Mulakan dengan repositori GitHub anda. Semak privasi CV dan keterlihatan karya ORCID sebelum laman diterbitkan.</p></div>
+            <a href="https://github.com/new" target="_blank" rel="noopener noreferrer">Cipta repositori di GitHub ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span>IPF · Universiti Teknologi Malaysia</span><span>Disediakan untuk pembelajaran dan boleh dikongsi dengan menyatakan sumber.</span><a href="#atas">Ke atas ↑</a></footer>
+
+    <script is:inline>
+      const article = document.querySelector('.document');
+      const progress = document.querySelector('[data-progress]');
+      const updateProgress = () => {
+        if (!article || !progress) return;
+        const bounds = article.getBoundingClientRect();
+        const distance = article.offsetHeight - window.innerHeight;
+        const travelled = -bounds.top + window.innerHeight * 0.28;
+        progress.style.width = `${Math.max(0, Math.min(100, distance > 0 ? travelled / distance * 100 : 100))}%`;
+      };
+      addEventListener('scroll', updateProgress, { passive: true });
+      addEventListener('resize', updateProgress);
+      updateProgress();
+
+      document.querySelectorAll('.document pre').forEach((block) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'copy-code';
+        button.textContent = 'Salin kod';
+        button.setAttribute('aria-label', 'Salin blok kod');
+        button.addEventListener('click', async () => {
+          const code = block.querySelector('code')?.textContent || block.textContent || '';
+          try {
+            await navigator.clipboard.writeText(code);
+            button.textContent = 'Disalin ✓';
+            setTimeout(() => button.textContent = 'Salin kod', 1800);
+          } catch {
+            button.textContent = 'Gagal menyalin';
+            setTimeout(() => button.textContent = 'Salin kod', 1800);
+          }
+        });
+        block.append(button);
+      });
+
+      const links = [...document.querySelectorAll('[data-toc-link]')];
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          links.forEach((link) => {
+            const active = link.getAttribute('href') === `#${entry.target.id}`;
+            link.classList.toggle('active', active);
+            if (active) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
+          });
+        }
+      }, { rootMargin: '-20% 0px -68% 0px' });
+      document.querySelectorAll('.document h2[id]').forEach((heading) => observer.observe(heading));
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root { --ink:#172b27; --muted:#5b6d66; --forest:#153b34; --forest-2:#0e2e28; --mint:#b8ead7; --lime:#ddf3b9; --paper:#f8faf7; --line:#dce6de; --maroon:#8f163f; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:5rem; }
+  body { margin:0; color:var(--ink); background:var(--paper); font-family:'Avenir Next','Segoe UI',Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+  button, a { -webkit-tap-highlight-color:transparent; }
+  a { color:inherit; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline:3px solid #2aaf83; outline-offset:4px; }
+  .reading-progress { position:fixed; inset:0 auto auto 0; width:0; height:4px; z-index:50; background:#2bb787; transition:width .1s linear; }
+  .site-header { height:76px; display:flex; align-items:center; justify-content:space-between; padding:0 clamp(1.2rem,4.5vw,5rem); background:#fff; border-bottom:1px solid var(--line); }
+  .brand { display:flex; align-items:center; gap:.85rem; text-decoration:none; }
+  .brand-seal { display:grid; place-items:center; width:44px; height:44px; border-radius:13px; color:#fff; background:var(--maroon); font-size:.78rem; font-weight:800; letter-spacing:.04em; }
+  .brand-wordmark { font-size:.92rem; line-height:1.15; font-weight:800; letter-spacing:-.02em; }
+  .site-header nav { display:flex; align-items:center; gap:2.2rem; }
+  .site-header nav a { text-decoration:none; color:#345349; font-size:.88rem; font-weight:700; }
+  .site-header nav a:hover { color:#128264; }
+  .site-header .header-repo { border:1px solid #bdd6c6; padding:.68rem .9rem; border-radius:8px; }
+  .hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(420px,.9fr); gap:clamp(2rem,5vw,6.5rem); align-items:center; min-height:640px; padding:clamp(4rem,7vw,7rem) clamp(1.2rem,7vw,7.5rem); color:#fff; background:var(--forest); overflow:hidden; }
+  .hero-copy { max-width:720px; }
+  .hero-marker { display:inline-flex; gap:.7rem; align-items:center; color:var(--mint); font-weight:750; font-size:.92rem; }
+  .marker-dot { width:9px; height:9px; border-radius:50%; background:#91e8be; box-shadow:0 0 0 6px #ffffff15; }
+  .hero h1 { max-width:720px; margin:1.9rem 0 1.3rem; font-size:clamp(3rem,5vw,5.5rem); line-height:1.04; letter-spacing:-.055em; font-weight:780; }
+  .hero-copy>p:not(.hero-byline) { max-width:580px; margin:0; color:#d6e8df; font-size:clamp(1.08rem,1.45vw,1.27rem); line-height:1.65; }
+  .hero-actions { display:flex; align-items:center; flex-wrap:wrap; gap:1.25rem; margin-top:2rem; }
+  .hero-actions a { text-decoration:none; font-weight:750; font-size:.94rem; }
+  .primary-action { display:inline-flex; gap:2.5rem; justify-content:space-between; align-items:center; padding:1rem 1.25rem; background:var(--lime); color:#133527; border-radius:9px; }
+  .primary-action:hover { background:#eaf9cc; }
+  .quiet-action { color:#e5f4eb; border-bottom:1px solid #88ad9e; padding:.45rem 0; }
+  .hero-byline { margin:3.3rem 0 0; font-size:.88rem; line-height:1.6; font-weight:700; color:#ecf7f0; }
+  .hero-byline span { font-weight:500; color:#b6cfc0; }
+  .hero-diagram { position:relative; width:100%; height:475px; max-width:610px; margin:auto; border:1px solid #ffffff37; border-radius:22px; background:linear-gradient(145deg,#204e40 0%,#153b34 65%); box-shadow:0 30px 80px #051d1750; }
+  .diagram-label { position:absolute; top:1.4rem; left:1.6rem; color:#bee4cd; font-size:.78rem; letter-spacing:.02em; font-weight:750; }
+  .source { position:absolute; left:6%; width:32%; display:grid; grid-template-columns:30px 1fr; grid-template-rows:1fr 1fr; column-gap:.55rem; align-items:center; height:62px; padding:.5rem .7rem; border:1px solid #b4e2c75c; border-radius:10px; background:#f6fff9; color:#153b34; }
+  .source strong { font-size:.86rem; }
+  .source small { font-size:.64rem; color:#55726a; }
+  .source-icon { grid-row:1/3; display:grid; place-items:center; width:28px; height:28px; border-radius:7px; background:#d9f1de; font-size:.76rem; font-weight:800; }
+  .source-cv { top:19%; }.source-orcid { top:37%; }.source-scopus { top:55%; }
+  .connector { position:absolute; height:1px; background:#a6dcc3; opacity:.85; }
+  .connector-a,.connector-b,.connector-c { width:12%; left:38%; }.connector-a { top:25.5%; }.connector-b { top:43.5%; }.connector-c { top:61.5%; }
+  .hub { position:absolute; top:34.5%; left:50%; width:27%; height:83px; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:.6rem; text-align:center; border-radius:11px; color:#113c2d; background:var(--lime); box-shadow:0 0 0 5px #eff6cd24; }
+  .hub span { font-weight:850; font-size:.86rem; }.hub small { margin-top:.25rem; font-size:.67rem; }
+  .connector-d { top:43.5%; left:77%; width:5%; }
+  .destination { position:absolute; top:32.5%; left:82%; width:16%; height:103px; display:flex; flex-direction:column; gap:.35rem; align-items:center; padding:.6rem .25rem; border-radius:9px; background:#fff; color:#1c3930; text-align:center; }
+  .browser-dots { display:flex; gap:3px; align-self:flex-start; }.browser-dots i { width:4px; height:4px; border-radius:50%; background:#b5c7b9; }
+  .destination-title { margin-top:.4rem; font-size:.69rem; font-weight:850; }.destination-url { font-size:.58rem; color:#658073; }
+  .diagram-foot { position:absolute; left:1.6rem; right:1.6rem; bottom:1.2rem; margin:0; color:#cee5d6; font-size:.76rem; line-height:1.5; }
+  .orientation { padding:6rem clamp(1.2rem,7vw,7.5rem) 5.5rem; background:#fff; }
+  .orientation-heading { display:grid; grid-template-columns:220px minmax(0,850px); gap:2rem; align-items:start; }
+  .section-index { padding-top:.65rem; color:#217c5e; font-size:.9rem; font-weight:800; }
+  .orientation h2 { margin:0; font-size:clamp(2rem,3.4vw,3.7rem); line-height:1.12; letter-spacing:-.045em; font-weight:770; }
+  .orientation-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem; margin-top:5rem; }
+  .orientation-item { border-top:2px solid #93c4ab; padding-top:1.2rem; }
+  .orientation-item span { color:#20755b; font-size:.84rem; font-weight:800; }
+  .orientation-item h3 { margin:1.3rem 0 .65rem; font-size:1.45rem; letter-spacing:-.025em; }
+  .orientation-item p { max-width:31ch; margin:0; color:var(--muted); line-height:1.6; }
+  .note-strip { max-width:970px; margin:5rem 0 0 auto; padding:1.4rem 1.7rem; background:#eaf5ed; border-left:4px solid #208461; color:#365e4d; line-height:1.6; }
+  .reading-area { display:grid; grid-template-columns:minmax(235px,320px) minmax(0,900px); gap:clamp(2rem,6vw,6rem); align-items:start; max-width:1540px; margin:auto; padding:5rem clamp(1.2rem,5vw,5rem) 8rem; }
+  .toc-inner { position:sticky; top:2rem; max-height:calc(100vh - 4rem); overflow:auto; scrollbar-width:thin; }
+  .toc-title { margin:0 0 1.4rem; font-size:.9rem; font-weight:850; color:#285d48; }
+  .toc nav { display:grid; gap:.18rem; border-left:1px solid #cadbd0; }
+  .toc nav a { display:block; margin-left:-1px; padding:.52rem .8rem .52rem 1rem; border-left:2px solid transparent; color:#60746a; text-decoration:none; font-size:.83rem; line-height:1.38; }
+  .toc nav a:hover,.toc nav a.active { border-left-color:#167b56; color:#14563f; background:#e9f4eb; }
+  .toc-top { display:inline-block; margin:1.7rem 0 0 1rem; color:#26694e; font-size:.82rem; font-weight:750; text-decoration:none; }
+  .reading-topline { display:flex; justify-content:space-between; gap:1rem; padding-bottom:1rem; border-bottom:1px solid var(--line); color:#64766b; font-size:.78rem; font-weight:800; }
+  .reading-topline span:first-child { color:#1a6e50; }
+  .mobile-toc { display:none; }
+  .document { font-size:1.035rem; line-height:1.78; color:#263a32; }
+  .document>h1:first-child { display:none; }
+  .document h2 { margin:4.6rem 0 1.15rem; padding-top:.15rem; font-size:clamp(1.8rem,2.4vw,2.55rem); line-height:1.2; letter-spacing:-.038em; font-weight:780; color:#173c2e; scroll-margin-top:2rem; }
+  .document h3 { margin:2.4rem 0 .65rem; font-size:1.35rem; line-height:1.3; }
+  .document p { max-width:75ch; margin:1rem 0; }
+  .document a { color:#126e56; text-underline-offset:3px; overflow-wrap:anywhere; }
+  .document a:hover { color:#0c503f; }
+  .document ul,.document ol { padding-left:1.4rem; margin:1rem 0 1.5rem; }
+  .document li { padding-left:.2rem; margin:.45rem 0; }
+  .document li::marker { color:#268764; }
+  .document strong { color:#193f30; }
+  .document :not(pre)>code { padding:.13rem .34rem; border-radius:4px; color:#89304a; background:#f1e8e9; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.89em; overflow-wrap:anywhere; }
+  .document pre { position:relative; margin:1.55rem 0 2rem; padding:2.3rem 1.35rem 1.45rem; border-radius:11px; overflow:auto; background:#132620 !important; border:1px solid #355849; box-shadow:0 12px 30px #183f2812; }
+  .document pre code { font-size:.83rem; line-height:1.7; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .copy-code { position:absolute; top:.55rem; right:.55rem; padding:.32rem .62rem; border:1px solid #92baa155; border-radius:5px; background:#2c483b; color:#e5f5e9; font:700 .72rem 'Avenir Next','Segoe UI',Arial,sans-serif; cursor:pointer; }
+  .copy-code:hover { background:#37634c; }
+  .document table { display:block; width:100%; overflow-x:auto; border-collapse:collapse; margin:1.5rem 0 2.3rem; font-size:.92rem; }
+  .document th,.document td { padding:.76rem .9rem; border-bottom:1px solid #dbe6dd; text-align:left; vertical-align:top; min-width:140px; }
+  .document th { background:#eaf4eb; color:#1d563d; font-weight:800; }
+  .document tr:nth-child(even) td { background:#fff; }
+  .document blockquote { margin:2rem 0; padding:1rem 1.4rem; border-left:4px solid #42a479; background:#edf6ef; }
+  .document hr { border:0; border-top:1px solid var(--line); margin:3rem 0; }
+  .end-panel { display:flex; justify-content:space-between; align-items:end; gap:2rem; margin-top:5rem; padding:2.2rem 2.4rem; border-radius:14px; background:var(--forest); color:#fff; }
+  .end-panel h2 { margin:.8rem 0 .5rem; font-size:1.8rem; letter-spacing:-.03em; }.end-panel p { max-width:53ch; margin:0; color:#d2e6d9; line-height:1.55; font-size:.9rem; }.end-panel a { flex:none; text-decoration:none; color:#133a2a; background:var(--lime); padding:.85rem 1rem; border-radius:7px; font-weight:800; font-size:.84rem; }
+  .end-mark { display:grid; place-items:center; width:38px; height:38px; border:1px solid #8cd6aa; border-radius:50%; color:#b5efc8; font-weight:800; }
+  .site-footer { display:flex; justify-content:space-between; gap:2rem; padding:2rem clamp(1.2rem,5vw,5rem); border-top:1px solid var(--line); background:#fff; color:#66786d; font-size:.78rem; }.site-footer a { color:#226b4e; font-weight:800; text-decoration:none; }
+  @media(max-width:1150px) { .hero { grid-template-columns:1fr; }.hero-copy { max-width:760px; }.hero-diagram { margin:0; }.orientation-heading { grid-template-columns:180px 1fr; }.reading-area { grid-template-columns:220px minmax(0,1fr); gap:2.5rem; } }
+  @media(max-width:760px) { .site-header { height:68px; }.site-header nav { gap:1rem; }.site-header nav a:not(.header-repo) { display:none; }.site-header .header-repo { font-size:.72rem; padding:.57rem .6rem; }.brand-wordmark { font-size:.78rem; }.brand-seal { width:38px; height:38px; }.hero { min-height:auto; padding:4.5rem 1.2rem 5rem; gap:3.4rem; }.hero h1 { font-size:clamp(2.8rem,10vw,4.4rem); }.hero-diagram { max-width:590px; height:405px; }.orientation { padding:4.5rem 1.2rem; }.orientation-heading { display:block; }.orientation h2 { margin-top:1rem; }.orientation-grid { grid-template-columns:1fr; gap:2rem; margin-top:3rem; }.orientation-item h3 { margin:.65rem 0 .3rem; }.note-strip { margin-top:3rem; }.reading-area { display:block; padding:3.5rem 1.2rem 5rem; }.toc { display:none; }.reading-topline { font-size:.7rem; }.mobile-toc { display:block; margin:1.5rem 0 2rem; border:1px solid #cbded0; border-radius:8px; background:#fff; }.mobile-toc summary { cursor:pointer; padding:.85rem 1rem; color:#24543e; font-weight:800; }.mobile-toc summary span { float:right; }.mobile-toc nav { display:grid; gap:.1rem; padding:.3rem 1rem 1rem; }.mobile-toc nav a { padding:.42rem .15rem; text-decoration:none; color:#526b5c; font-size:.86rem; }.document { font-size:1rem; }.document h2 { margin-top:3.6rem; }.end-panel { display:block; padding:1.8rem; }.end-panel a { display:inline-block; margin-top:1.4rem; }.site-footer { display:block; line-height:1.8; }.site-footer span,.site-footer a { display:block; } }
+  @media(max-width:480px) { .hero-diagram { height:355px; }.source { left:5%; width:34%; height:54px; padding:.3rem; }.source strong { font-size:.68rem; }.source small { font-size:.52rem; }.source-icon { width:23px; height:23px; font-size:.56rem; }.connector-a,.connector-b,.connector-c { left:39%; width:10%; }.hub { left:49%; width:29%; height:70px; }.hub span { font-size:.65rem; }.hub small { font-size:.52rem; }.connector-d { left:78%; width:4%; }.destination { left:82%; width:16%; height:81px; }.destination-title { font-size:.52rem; }.destination-url { font-size:.42rem; }.diagram-foot { font-size:.68rem; }.hero-actions { align-items:flex-start; flex-direction:column; }.reading-topline span:last-child { text-align:right; }.document pre { margin-left:-.3rem; margin-right:-.3rem; }.document pre code { font-size:.75rem; } }
+  @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }.reading-progress { transition:none; } }
+</style>
